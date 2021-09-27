@@ -43,4 +43,17 @@ class LoginController extends CI_Controller
             redirect(base_url());
         }
     }
+
+    public function logoutUser()
+    {
+        $session_data = array(
+            'userid',
+            'role'
+        );
+
+        $this->session->set_tempdata('notice', 'You have logout successfully.', 1);
+        $this->session->unset_userdata($session_data);
+
+        redirect(base_url());
+    }
 }
