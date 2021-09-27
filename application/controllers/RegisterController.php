@@ -29,7 +29,7 @@ class RegisterController extends CI_Controller
             $this->session->set_tempdata('error', 'Password not match, please register again.', 1);
             redirect(base_url() . 'register');
         } else {
-            if ($this->RegisterModel->register_new_user($fullname, $icnumber, $phone, $address, $username, $password) === true) {
+            if ($this->RegisterModel->registerUserModel($fullname, $icnumber, $phone, $address, $username, $password) === true) {
                 $this->session->set_tempdata('notice', 'Account has been created successfully, please proceed login.', 1);
                 redirect(base_url() . 'login');
             } else {

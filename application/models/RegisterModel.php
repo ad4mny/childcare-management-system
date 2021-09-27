@@ -2,7 +2,7 @@
 
 class RegisterModel extends CI_Model
 {
-    public function register_new_user($fullname, $icnumber, $phone, $address, $username, $password)
+    public function registerUserModel($fullname, $icnumber, $phone, $address, $username, $password)
     {
         $data = array(
             'fullname' => $fullname,
