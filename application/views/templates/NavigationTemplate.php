@@ -15,7 +15,7 @@
                         <a class="nav-link <?php if ($this->uri->segment(1) == 'dashboard') echo 'active border-bottom'; ?>" href="<?php echo base_url(); ?>dashboard">Register Children</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link <?php if ($this->uri->segment(1) == 'annoucement') echo 'active border-bottom'; ?>" href="<?php echo base_url(); ?>annoucement">Annoucement</a>
+                        <a class="nav-link <?php if ($this->uri->segment(1) == 'annoucement') echo 'active border-bottom'; ?>" href="<?php echo base_url(); ?>announcement">Announcement</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link <?php if ($this->uri->segment(1) == 'attendence') echo 'active border-bottom'; ?>" href="<?php echo base_url(); ?>attendence">Attendence</a>

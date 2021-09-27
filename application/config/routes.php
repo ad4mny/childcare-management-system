@@ -13,3 +13,5 @@ $route['register/submit'] = 'RegisterController/registerUser';
 
 $route['dashboard'] = 'DashboardController';
 $route['dashboard/register/submit'] = 'DashboardController/registerChild';
+
+$route['announcement'] = 'AnnouncementController';
