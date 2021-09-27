@@ -10,3 +10,6 @@ $route['login/submit'] = 'LoginController/loginUser';
 
 $route['register'] = 'RegisterController';
 $route['register/submit'] = 'RegisterController/registerUser';
+
+$route['dashboard'] = 'DashboardController';
+$route['dashboard/register/submit'] = 'DashboardController/registerChild';
