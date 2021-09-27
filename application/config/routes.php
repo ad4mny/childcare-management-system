@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 $route['default_controller'] = 'LoginController';
 $route['404_override'] = '';
@@ -15,3 +15,5 @@ $route['dashboard'] = 'DashboardController';
 $route['dashboard/register/submit'] = 'DashboardController/registerChild';
 
 $route['announcement'] = 'AnnouncementController';
+$route['profile'] = 'ProfileController';
+$route['profile/update/submit'] = 'ProfileController/updateProfileInfo';
