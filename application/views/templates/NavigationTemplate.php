@@ -1,12 +1,12 @@
 <nav class="navbar navbar-light bg-white shadow sticky-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Bonda Sadiah</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-            <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+            <i class="fas fa-bars fa-fw"></i> Menu
         </button>
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Navigation</h5>
+                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Bonda Sediah</h5>
                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
@@ -15,7 +15,7 @@
                         <a class="nav-link <?php if ($this->uri->segment(1) == 'dashboard') echo 'active border-bottom'; ?>" href="<?php echo base_url(); ?>dashboard">Register Children</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link <?php if ($this->uri->segment(1) == 'annoucement') echo 'active border-bottom'; ?>" href="<?php echo base_url(); ?>announcement">Announcement</a>
+                        <a class="nav-link <?php if ($this->uri->segment(1) == 'announcement') echo 'active border-bottom'; ?>" href="<?php echo base_url(); ?>announcement">Announcement</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link <?php if ($this->uri->segment(1) == 'attendence') echo 'active border-bottom'; ?>" href="<?php echo base_url(); ?>attendence">Attendence</a>
@@ -27,7 +27,7 @@
                         <a class="nav-link <?php if ($this->uri->segment(1) == 'profile') echo 'active border-bottom'; ?>" href="<?php echo base_url(); ?>profile">Profile</a>
                     </li>
                 </ul>
-                <form class="d-flex pt-5">
+                <form class="d-flex pt-5 ">
                     <a class="btn btn-danger" href="<?php echo base_url(); ?>logout">Logout</a>
                 </form>
             </div>
