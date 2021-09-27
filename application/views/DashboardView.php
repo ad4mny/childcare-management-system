@@ -8,7 +8,7 @@
         <?php if (isset($childrens) && $childrens != false) {
             foreach ($childrens as $child) { ?>
                 <div class="col d-flex">
-                    <div class="card h-100 rounded-3 border-0 shadow">
+                    <div class="card h-100 rounded-3 border-0 shadow position-relative">
                         <?php
                         if ($child['photo'] !== NULL) {
                             echo '<img class="card-img-top" src="' . base_url() . 'assets/photo/children/' . $child['photo'] . '" alt="No Image">';
@@ -37,6 +37,11 @@
                                     ?>
                                 </p>
                             </div>
+                            <div class="position-absolute bottom-0 end-0 me-2 mb-2">
+                                <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#updateChild">
+                                    <i class="fas fa-edit fa-fw "></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -61,7 +66,7 @@
                 <h3>Child Registration</h3>
             </div>
             <div class="modal-body">
-                <form class="row g-2" method="post" action="<?php echo base_url(); ?>dashboard/register/submit"  enctype="multipart/form-data">
+                <form class="row g-2" method="post" action="<?php echo base_url(); ?>dashboard/register/submit" enctype="multipart/form-data">
                     <div class="col-12 pb-2">
                         <small>Child's Full Name</small>
                         <input type="text" class="form-control" name="fullname" placeholder="Enter child's full name as in MyKad" required>
