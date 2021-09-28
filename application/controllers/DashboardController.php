@@ -11,6 +11,7 @@ class DashboardController extends CI_Controller
 
     public function index()
     {
+        $this->authentication->verifyUserLogin();
         $data['childrens'] = $this->getChildrenList();
         $this->load->view('templates/HeaderTemplate.php');
         $this->load->view('templates/NavigationTemplate.php');

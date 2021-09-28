@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Authentication
 {
-    public function verify_login()
+    public function verifyUserLogin()
     {
         $CI = get_instance();
         $CI->load->library('session');

@@ -11,6 +11,7 @@ class ProfileController extends CI_Controller
 
     public function index()
     {
+        $this->authentication->verifyUserLogin();
         $data['profiles'] = $this->getProfileInfo();
         $this->load->view('templates/HeaderTemplate.php');
         $this->load->view('templates/NavigationTemplate.php');

@@ -10,6 +10,7 @@ class RegisterController extends CI_Controller
 
     public function index()
     {
+        $this->authentication->verifyUserLogin();
         $this->load->view('templates/HeaderTemplate.php');
         $this->load->view('RegisterView.php');
         $this->load->view('templates/FooterTemplate.php');
