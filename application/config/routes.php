@@ -18,3 +18,7 @@ $route['dashboard/register/submit'] = 'DashboardController/registerChild';
 $route['announcement'] = 'AnnouncementController';
 $route['profile'] = 'ProfileController';
 $route['profile/update/submit'] = 'ProfileController/updateProfileInfo';
+
+$route['teacher/(:any)'] = 'TeacherController/index/$1';
+$route['teacher/dashboard/view/(:num)'] = 'TeacherController/viewChildInfo/$1';
+$route['teacher/dashboard/remove/(:num)'] = 'TeacherController/removeChildInfo/$1';
