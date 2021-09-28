@@ -26,4 +26,14 @@ class DashboardModel extends CI_Model
         return $this->db->insert('childrens', $data);
 
     }
+
+    public function getChildInfoByIDModel($child_id)
+    {
+        $this->db->select('*, a.fullname as childName, b.fullname as parentName, a.photo as childPhoto, a.icnumber as childIC, b.icnumber as parentIC');
+        $this->db->from('childrens a');
+        $this->db->join('users b', 'userid = parentid');
+        $this->db->where('childrenid', $child_id);
+        return $this->db->get()->result_array();
+    }
+
 }
