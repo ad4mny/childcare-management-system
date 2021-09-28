@@ -20,8 +20,7 @@ class ProfileModel extends CI_Model
             'address' => $address,
             'username' => $username,
             'photo' => $photo,
-            'datetime' => date('H:i:s Y-m-d'),
-            'role' => 0
+            'datetime' => date('H:i:s Y-m-d')
         );
 
         $this->db->where('userid', $_SESSION['userid']);
