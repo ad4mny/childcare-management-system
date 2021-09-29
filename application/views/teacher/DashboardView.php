@@ -11,9 +11,19 @@
                     $id = $parent['userid'];
             ?>
                     <a href="<?php echo base_url() . 'teacher/dashboard/' . $id; ?>" class="row rounded-3 shadow-sm bg-white p-1 my-1 text-decoration-none text-reset">
-                        <div class="col-10">
+                        <div class="col m-auto">
+                            <?php
+                            if ($parent['photo'] !== NULL) {
+                                echo '<img class="card-img-top" src="' . base_url() . 'assets/photo/parent/' . $parent['photo'] . '" alt="No Image">';
+                            } else {
+                                echo '<img class="card-img-top" src="https://dummyimage.com/640x360/f0f0f0/aaa" alt="No Image">';
+                            }
+                            ?>
+                        </div>
+                        <div class="col-6">
                             <p class="text-capitalize mb-0"><?php echo $parent['fullname']; ?></p>
-                            <p class="text-capitalize mb-0"><?php echo $parent['icnumber']; ?></p>
+                            <small class="text-capitalize mb-0"><?php echo $parent['icnumber']; ?></small><br>
+                            <small class="text-capitalize mb-0"><?php echo $parent['phone']; ?></small>
                         </div>
                         <div class="col text-end m-auto">
                             <i class="fas fa-chevron-right <?php if ($this->uri->segment(3) == $id) echo 'text-primary'; ?>"></i>
