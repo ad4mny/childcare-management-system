@@ -25,6 +25,7 @@ class TeacherModel extends CI_Model
         $this->db->where('childrenid', $child_id);
         return $this->db->delete('childrens');
     }
+ 
 
     public function getAttendenceListModel()
     {
@@ -46,5 +47,23 @@ class TeacherModel extends CI_Model
         );
 
         return $this->db->insert('attendences', $data);
+    }   
+    
+    public function addAnnouncementModel($title, $description)
+    {
+        $data = array(
+            'teacherid' => $_SESSION['userid'],
+            'title' => $title,
+            'description' => $description,
+            'datetime' => date('h:i a d/m/Y')
+        );
+
+        return $this->db->insert('announcements', $data);
+    }
+
+    public function removeAnnouncementModel($announcement_id)
+    {
+        $this->db->where('announcementid', $announcement_id);
+        return $this->db->delete('announcements');
     }
 }

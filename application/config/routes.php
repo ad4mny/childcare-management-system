@@ -25,3 +25,5 @@ $route['teacher/dashboard/view/(:num)'] = 'TeacherController/viewChildInfo/$1';
 $route['teacher/dashboard/remove/(:num)'] = 'TeacherController/removeChildInfo/$1';
 
 $route['teacher/attendence/submit'] = 'TeacherController/addAttendence';
+$route['teacher/announcement/submit'] = 'TeacherController/addAnnouncement';
+$route['teacher/announcement/remove/(:num)'] = 'TeacherController/removeAnnouncement/$1';

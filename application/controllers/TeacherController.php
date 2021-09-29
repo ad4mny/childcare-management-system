@@ -116,5 +116,30 @@ class TeacherController extends CI_Controller
         }
 
         redirect(base_url() . 'teacher/attendence');
+    }  
+    
+    public function addAnnouncement()
+    {
+        $title = $this->input->post('title');
+        $description = nl2br(htmlspecialchars($this->input->post('description')));
+
+        if ($this->TeacherModel->addAnnouncementModel($title, $description) === true) {
+            $this->session->set_tempdata('notice', 'Announcement has been added successfully.', 1);
+        } else {
+            $this->session->set_tempdata('error', 'Failed to add announcement, try again later.', 1);
+        }
+
+        redirect(base_url() . 'teacher/announcement');
+    }
+
+    public function removeAnnouncement($announcement_id)
+    {
+        if ($this->TeacherModel->removeAnnouncementModel($announcement_id) === true) {
+            $this->session->set_tempdata('notice', 'Selected announcement has been removed from database.', 1);
+        } else {
+            $this->session->set_tempdata('error', 'Removing announcement error, try again later.', 1);
+        }
+
+        redirect(base_url() . 'teacher/announcement');
     }
 }
