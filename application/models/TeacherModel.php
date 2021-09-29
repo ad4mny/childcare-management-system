@@ -18,7 +18,7 @@ class TeacherModel extends CI_Model
 
     public function getAttendenceListModel()
     {
-        $this->db->select('GROUP_CONCAT(childrens.fullname) as fullname, date, GROUP_CONCAT(status) as status');
+        $this->db->select('GROUP_CONCAT(childrens.fullname) as fullname, date, GROUP_CONCAT(status) as status, GROUP_CONCAT(time) as time');
         $this->db->from('attendences');
         $this->db->join('childrens', 'attendences.childrenid = childrens.childrenid');
         $this->db->group_by('date');
@@ -32,7 +32,7 @@ class TeacherModel extends CI_Model
             'childrenid' => $child_id,
             'status' => $status,
             'date' => date("d/m/Y", strtotime($date)),
-            'time' => date('H:i:s')
+            'time' => date('h:i:s A')
         );
 
         return $this->db->insert('attendences', $data);

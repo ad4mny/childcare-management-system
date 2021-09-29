@@ -34,27 +34,31 @@
                 </form>
             </div>
         </div>
-        <div class="col">
+        <div class="col ">
             <?php
             if (isset($attendences) && $attendences != false) {
                 foreach ($attendences as $attendence) {
             ?>
-                    <div class="row ">
+                    <div class="row pt-3">
                         <div class="col">
-                            <h5 class="text-capitalize mb-0"><?php echo $attendence['date']; ?></h5>
+                            <p class="text-capitalize mb-0 fw-bold"><?php echo $attendence['date']; ?></p>
                         </div>
                     </div>
                     <?php
                     $child = explode(",", $attendence['fullname']);
                     $status = explode(",", $attendence['status']);
+                    $time = explode(",", $attendence['time']);
                     for ($i = 0; $i < sizeof($child); $i++) {
                     ?>
-                        <div class="row rounded-3 shadow bg-white p-2 my-2">
-                            <div class="col-7">
+                        <div class="row rounded-3 shadow bg-white p-1 my-1">
+                            <div class="col-8">
                                 <p class="text-capitalize mb-0"><?php echo $child[$i]; ?></p>
                             </div>
                             <div class="col">
                                 <p class="text-capitalize mb-0"><?php echo $status[$i]; ?></p>
+                            </div>
+                            <div class="col">
+                                <p class="text-capitalize mb-0"><?php echo $time[$i]; ?></p>
                             </div>
                         </div>
                 <?php
