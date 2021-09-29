@@ -3,10 +3,20 @@
 class TeacherModel extends CI_Model
 {
 
-    public function getChildrenListModel()
+    public function getParentListModel()
+    {
+        $this->db->select('userid,fullname,icnumber,address,phone,photo');
+        $this->db->from('users');
+        $this->db->where('role', 0);
+        return $this->db->get()->result_array();
+    }
+
+
+    public function getChildByParentIDModel($parent_id)
     {
         $this->db->select('*');
         $this->db->from('childrens');
+        $this->db->where('parentid', $parent_id);
         return $this->db->get()->result_array();
     }
 

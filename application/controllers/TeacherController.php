@@ -11,7 +11,7 @@ class TeacherController extends CI_Controller
         $this->load->model('ProfileModel');
     }
 
-    public function index($page = 'dashboard')
+    public function index($page = 'dashboard', $parent_id = NULL)
     {
         $this->authentication->verifyUserLogin();
         $this->load->view('templates/HeaderTemplate.php');
@@ -23,7 +23,6 @@ class TeacherController extends CI_Controller
                 $this->load->view('teacher/AnnouncementView.php', $data);
                 break;
             case 'attendence':
-                $data['childs'] = $this->getChildrenList();
                 $data['attendences'] = $this->getAttendenceList();
                 $this->load->view('teacher/AttendenceView.php', $data);
                 break;
@@ -36,7 +35,10 @@ class TeacherController extends CI_Controller
                 $this->load->view('teacher/ProfileView.php', $data);
                 break;
             default:
-                $data['childrens'] = $this->getChildrenList();
+                if ($parent_id !== NULL) {
+                    $data['childrens'] = $this->getChildByParentID($parent_id);
+                }
+                $data['parents'] = $this->getParentList();
                 $this->load->view('teacher/DashboardView.php', $data);
                 break;
         }
@@ -44,9 +46,14 @@ class TeacherController extends CI_Controller
         $this->load->view('templates/FooterTemplate.php');
     }
 
-    public function getChildrenList()
+    public function getChildByParentID($parent_id)
     {
-        return $this->TeacherModel->getChildrenListModel();
+        return $this->TeacherModel->getChildByParentIDModel($parent_id);
+    }
+
+    public function getParentList()
+    {
+        return $this->TeacherModel->getParentListModel();
     }
 
     public function getAnnouncementList()
@@ -79,6 +86,7 @@ class TeacherController extends CI_Controller
 
         redirect(base_url() . 'teacher/dashboard');
     }
+
 
     public function viewChildInfo($child_id)
     {
