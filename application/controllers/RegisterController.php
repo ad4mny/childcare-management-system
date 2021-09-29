@@ -23,13 +23,13 @@ class RegisterController extends CI_Controller
         $address = $this->input->post('address');
         $username = $this->input->post('username');
         $password = $this->input->post('password');
-        $c_password = $this->input->post('c_password');
+        $c_password = $this->input->post('confirmpassword');
 
         if ($password !== $c_password) {
             $this->session->set_tempdata('error', 'Password not match, please register again.', 1);
             redirect(base_url() . 'register');
         } else {
-            if ($this->RegisterModel->registerUserModel($fullname, $icnumber, $phone, $address, $username, $password) === true) {
+            if ($this->RegisterModel->registerUserModel($fullname, $icnumber, $phone, $address, $username, md5($password)) === true) {
                 $this->session->set_tempdata('notice', 'Account has been created successfully, please proceed login.', 1);
                 redirect(base_url() . 'login');
             } else {
