@@ -28,3 +28,21 @@
         </div>
     </div>
 </div>
+<div class="container py-5">
+    <div class="row py-3">
+        <div class="col">
+            <h2> About </h2>
+            <p style="text-align: justify;">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu eros maximus, condimentum tortor eget, dapibus orci. In laoreet semper arcu eu maximus. Nulla tincidunt luctus porttitor. Maecenas lobortis arcu id magna malesuada, at dapibus magna facilisis. Phasellus mollis id nisi sed tempus. Ut malesuada pellentesque mi pretium egestas. Sed elit sapien, vehicula in tempus eget, fermentum eu mauris. Sed eget odio nec sapien pretium lacinia.
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h2> Contact Us </h2>
+            <p style="text-align: justify;">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu eros maximus, condimentum tortor eget, dapibus orci. In laoreet semper arcu eu maximus. Nulla tincidunt luctus porttitor. Maecenas lobortis arcu id magna malesuada, at dapibus magna facilisis. Phasellus mollis id nisi sed tempus. Ut malesuada pellentesque mi pretium egestas. Sed elit sapien, vehicula in tempus eget, fermentum eu mauris. Sed eget odio nec sapien pretium lacinia.
+            </p>
+        </div>
+    </div>
+</div>

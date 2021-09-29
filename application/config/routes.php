@@ -22,3 +22,5 @@ $route['profile/update/submit'] = 'ProfileController/updateProfileInfo';
 $route['teacher/(:any)'] = 'TeacherController/index/$1';
 $route['teacher/dashboard/view/(:num)'] = 'TeacherController/viewChildInfo/$1';
 $route['teacher/dashboard/remove/(:num)'] = 'TeacherController/removeChildInfo/$1';
+
+$route['teacher/attendence/submit'] = 'TeacherController/addAttendence';

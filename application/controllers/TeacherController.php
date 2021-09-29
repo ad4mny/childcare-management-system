@@ -23,6 +23,7 @@ class TeacherController extends CI_Controller
                 $this->load->view('teacher/AnnouncementView.php', $data);
                 break;
             case 'attendence':
+                $data['childs'] = $this->getChildrenList();
                 $data['attendences'] = $this->getAttendenceList();
                 $this->load->view('teacher/AttendenceView.php', $data);
                 break;
@@ -55,7 +56,7 @@ class TeacherController extends CI_Controller
 
     public function getAttendenceList()
     {
-        return $this->TecaherModel->getAttendenceListModel();
+        return $this->TeacherModel->getAttendenceListModel();
     }
 
     public function getPaymentList()
@@ -92,5 +93,20 @@ class TeacherController extends CI_Controller
     public function getChildInfoByID($child_id)
     {
         return $this->DashboardModel->getChildInfoByIDModel($child_id);
+    }
+
+    public function addAttendence()
+    {
+        $child_id = $this->input->post('childid');
+        $status = $this->input->post('status');
+        $date = $this->input->post('date');
+
+        if ($this->TeacherModel->addAttendenceModel($child_id, $status, $date) === true) {
+            $this->session->set_tempdata('notice', 'Attendence has been added successfully.', 1);
+        } else {
+            $this->session->set_tempdata('error', 'Failed to add attendence, try again later.', 1);
+        }
+
+        redirect(base_url() . 'teacher/attendence');
     }
 }
