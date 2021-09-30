@@ -6,9 +6,7 @@ class TeacherController extends CI_Controller
     {
         parent::__construct();
         $this->load->model('TeacherModel');
-        $this->load->model('DashboardModel');
         $this->load->model('AnnouncementModel');
-        $this->load->model('ProfileModel');
         $this->load->library('upload');
     }
 
@@ -53,11 +51,6 @@ class TeacherController extends CI_Controller
         return $this->TeacherModel->getChildrenListModel();
     }
 
-    public function getChildInfoByID($child_id)
-    {
-        return $this->DashboardModel->getChildInfoByIDModel($child_id);
-    }
-
     public function getChildByParentID($parent_id)
     {
         return $this->TeacherModel->getChildByParentIDModel($parent_id);
@@ -91,21 +84,6 @@ class TeacherController extends CI_Controller
     public function getTeacherInfoByID($teacher_id)
     {
         return $this->TeacherModel->getTeacherInfoByIDModel($teacher_id);
-    }
-
-    public function getProfileInfo()
-    {
-        return $this->ProfileModel->getProfileInfoModel();
-    }
-
-    public function viewChildInfo($child_id)
-    {
-        $data['childs'] = $this->getChildInfoByID($child_id);
-
-        $this->load->view('templates/HeaderTemplate.php');
-        $this->load->view('templates/NavigationTemplate.php');
-        $this->load->view('admin/ChildInfoView.php', $data);
-        $this->load->view('templates/FooterTemplate.php');
     }
 
     public function removeChildInfo($child_id)
