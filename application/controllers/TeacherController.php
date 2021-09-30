@@ -20,30 +20,41 @@ class TeacherController extends CI_Controller
         switch ($page) {
             case 'announcement':
                 $data['announcements'] = $this->getAnnouncementList();
-                $this->load->view('teacher/AnnouncementView.php', $data);
+                $this->load->view('admin/AnnouncementView.php', $data);
                 break;
             case 'attendence':
+                $data['childrens'] = $this->getChildrenList();
                 $data['attendences'] = $this->getAttendenceList();
-                $this->load->view('teacher/AttendenceView.php', $data);
+                $this->load->view('admin/AttendenceView.php', $data);
                 break;
             case 'payment':
                 $data['payments'] = $this->getPaymentList();
-                $this->load->view('teacher/PaymentView.php', $data);
+                $this->load->view('admin/PaymentView.php', $data);
                 break;
             case 'profile':
-                $data['profiles'] = $this->getProfileInfo();
-                $this->load->view('teacher/ProfileView.php', $data);
+                $data['teachers'] = $this->getTeacherList();
+                $this->load->view('admin/TeacherView.php', $data);
                 break;
             default:
                 if ($parent_id !== NULL) {
                     $data['childrens'] = $this->getChildByParentID($parent_id);
                 }
                 $data['parents'] = $this->getParentList();
-                $this->load->view('teacher/DashboardView.php', $data);
+                $this->load->view('admin/ParentView.php', $data);
                 break;
         }
 
         $this->load->view('templates/FooterTemplate.php');
+    }
+
+    public function getChildrenList()
+    {
+        return $this->TeacherModel->getChildrenListModel();
+    }
+
+    public function getChildInfoByID($child_id)
+    {
+        return $this->DashboardModel->getChildInfoByIDModel($child_id);
     }
 
     public function getChildByParentID($parent_id)
@@ -71,9 +82,24 @@ class TeacherController extends CI_Controller
         return $this->TeacherModel->getPaymentListModel();
     }
 
+    public function getTeacherList()
+    {
+        return $this->TeacherModel->getTeacherListModel();
+    }
+
     public function getProfileInfo()
     {
         return $this->ProfileModel->getProfileInfoModel();
+    }
+
+    public function viewChildInfo($child_id)
+    {
+        $data['childs'] = $this->getChildInfoByID($child_id);
+
+        $this->load->view('templates/HeaderTemplate.php');
+        $this->load->view('templates/NavigationTemplate.php');
+        $this->load->view('admin/ChildInfoView.php', $data);
+        $this->load->view('templates/FooterTemplate.php');
     }
 
     public function removeChildInfo($child_id)
@@ -84,23 +110,7 @@ class TeacherController extends CI_Controller
             $this->session->set_tempdata('error', 'Removing child info error, try again later.', 1);
         }
 
-        redirect(base_url() . 'teacher/dashboard');
-    }
-
-
-    public function viewChildInfo($child_id)
-    {
-        $data['childs'] = $this->getChildInfoByID($child_id);
-
-        $this->load->view('templates/HeaderTemplate.php');
-        $this->load->view('templates/NavigationTemplate.php');
-        $this->load->view('teacher/ChildInfoView.php', $data);
-        $this->load->view('templates/FooterTemplate.php');
-    }
-
-    public function getChildInfoByID($child_id)
-    {
-        return $this->DashboardModel->getChildInfoByIDModel($child_id);
+        redirect(base_url() . 'manage/dashboard');
     }
 
     public function addAttendence()
@@ -115,9 +125,20 @@ class TeacherController extends CI_Controller
             $this->session->set_tempdata('error', 'Failed to add attendence, try again later.', 1);
         }
 
-        redirect(base_url() . 'teacher/attendence');
-    }  
-    
+        redirect(base_url() . 'manage/attendence');
+    }
+
+    public function removeAttendence($attendence_id)
+    {
+        if ($this->TeacherModel->removeAttendenceModel($attendence_id) === true) {
+            $this->session->set_tempdata('notice', 'Selected attendence has been removed from database.', 1);
+        } else {
+            $this->session->set_tempdata('error', 'Removing attendence error, try again later.', 1);
+        }
+
+        redirect(base_url() . 'manage/attendence');
+    }
+
     public function addAnnouncement()
     {
         $title = $this->input->post('title');
@@ -129,7 +150,7 @@ class TeacherController extends CI_Controller
             $this->session->set_tempdata('error', 'Failed to add announcement, try again later.', 1);
         }
 
-        redirect(base_url() . 'teacher/announcement');
+        redirect(base_url() . 'manage/announcement');
     }
 
     public function removeAnnouncement($announcement_id)
@@ -140,6 +161,6 @@ class TeacherController extends CI_Controller
             $this->session->set_tempdata('error', 'Removing announcement error, try again later.', 1);
         }
 
-        redirect(base_url() . 'teacher/announcement');
+        redirect(base_url() . 'manage/announcement');
     }
 }

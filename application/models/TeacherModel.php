@@ -11,7 +11,13 @@ class TeacherModel extends CI_Model
         return $this->db->get()->result_array();
     }
 
-
+    public function getChildrenListModel()
+    {
+        $this->db->select('*');
+        $this->db->from('childrens');
+        return $this->db->get()->result_array();
+    } 
+    
     public function getChildByParentIDModel($parent_id)
     {
         $this->db->select('*');
@@ -29,7 +35,7 @@ class TeacherModel extends CI_Model
 
     public function getAttendenceListModel()
     {
-        $this->db->select('GROUP_CONCAT(childrens.fullname) as fullname, date, GROUP_CONCAT(status) as status, GROUP_CONCAT(time) as time');
+        $this->db->select('GROUP_CONCAT(attendenceid) as attendenceid, GROUP_CONCAT(childrens.fullname) as fullname, date, GROUP_CONCAT(status) as status, GROUP_CONCAT(time) as time');
         $this->db->from('attendences');
         $this->db->join('childrens', 'attendences.childrenid = childrens.childrenid');
         $this->db->group_by('date');
@@ -48,6 +54,13 @@ class TeacherModel extends CI_Model
 
         return $this->db->insert('attendences', $data);
     }   
+
+    public function removeAttendenceModel($attendence_id)
+    {
+        $this->db->where('attendenceid', $attendence_id);
+        return $this->db->delete('attendences');
+    }
+    
     
     public function addAnnouncementModel($title, $description)
     {
@@ -65,5 +78,12 @@ class TeacherModel extends CI_Model
     {
         $this->db->where('announcementid', $announcement_id);
         return $this->db->delete('announcements');
+    }
+    
+    public function getPaymentListModel()
+    {
+        $this->db->select('*');
+        $this->db->from('payments');
+        return $this->db->get()->result_array();
     }
 }

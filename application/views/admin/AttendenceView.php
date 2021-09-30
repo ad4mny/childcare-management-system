@@ -45,13 +45,14 @@
                         </div>
                     </div>
                     <?php
+                    $id = explode(",", $attendence['attendenceid']);
                     $child = explode(",", $attendence['fullname']);
                     $status = explode(",", $attendence['status']);
                     $time = explode(",", $attendence['time']);
                     for ($i = 0; $i < sizeof($child); $i++) {
                     ?>
                         <div class="row rounded-3 shadow bg-white p-1 my-1">
-                            <div class="col-8">
+                            <div class="col-7">
                                 <p class="text-capitalize mb-0"><?php echo $child[$i]; ?></p>
                             </div>
                             <div class="col">
@@ -59,6 +60,11 @@
                             </div>
                             <div class="col">
                                 <p class="text-capitalize mb-0"><?php echo $time[$i]; ?></p>
+                            </div>
+                            <div class="col-1">
+                                <a href="<?php echo base_url() . 'manage/attendence/remove/' . $id[$i]; ?>" class="text-danger " onclick="return confirm('Are you sure want to delete this attendence?');">
+                                    <i class="fas fa-times fa-fw "></i>
+                                </a>
                             </div>
                         </div>
                 <?php
