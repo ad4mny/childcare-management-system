@@ -79,10 +79,33 @@ class TeacherModel extends CI_Model
         return $this->db->delete('announcements');
     }
 
+    public function addPaymentModel($parent_id, $child_id, $amount, $month, $status, $date)
+    {
+        $data = array(
+            'parentid' => $parent_id,
+            'childid' => $child_id,
+            'fee' => $amount,
+            'month' => $month,
+            'status' => $status,
+            'date' => date("d/m/Y", strtotime($date)),
+            'time' => date('h:i A')
+        );
+
+        return $this->db->insert('payments', $data);
+    }
+
+    public function removePaymentModel($payment_id)
+    {
+        $this->db->where('paymentid', $payment_id);
+        return $this->db->delete('payments');
+    }
+
     public function getPaymentListModel()
     {
         $this->db->select('*');
         $this->db->from('payments');
+        $this->db->join('childrens', 'childrens.childrenid = payments.childid');
+        $this->db->order_by('date', 'DESC');
         return $this->db->get()->result_array();
     }
 

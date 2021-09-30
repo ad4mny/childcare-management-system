@@ -27,6 +27,7 @@ class TeacherController extends CI_Controller
                 $this->load->view('admin/AttendenceView.php', $data);
                 break;
             case 'payment':
+                $data['childrens'] = $this->getChildrenList();
                 $data['payments'] = $this->getPaymentList();
                 $this->load->view('admin/PaymentView.php', $data);
                 break;
@@ -148,6 +149,36 @@ class TeacherController extends CI_Controller
         redirect(base_url() . 'manage/announcement');
     }
 
+    public function addPayment()
+    {
+        $ids = explode("/", $this->input->post('childid'));
+        $child_id = $ids[0];
+        $parent_id = $ids[1];
+        $amount = $this->input->post('amount');
+        $month = $this->input->post('month');
+        $status = $this->input->post('status');
+        $date = $this->input->post('date');
+
+        if ($this->TeacherModel->addPaymentModel($parent_id, $child_id, $amount, $month, $status, $date) === true) {
+            $this->session->set_tempdata('notice', 'Payment has been added successfully.', 1);
+        } else {
+            $this->session->set_tempdata('error', 'Failed to add payment, try again later.', 1);
+        }
+
+        redirect(base_url() . 'manage/payment');
+    }
+
+    public function removePayment($payment_id)
+    {
+        if ($this->TeacherModel->removePaymentModel($payment_id) === true) {
+            $this->session->set_tempdata('notice', 'Selected payment has been removed from database.', 1);
+        } else {
+            $this->session->set_tempdata('error', 'Removing payment error, try again later.', 1);
+        }
+
+        redirect(base_url() . 'manage/payment');
+    }
+
     public function addTeacher()
     {
         $fullname = $this->input->post('fullname');
@@ -172,7 +203,7 @@ class TeacherController extends CI_Controller
                 $this->session->set_tempdata('error', 'Registration failed, please register again.', 1);
             }
         }
-        
+
         redirect(base_url() . 'manage/teacher');
     }
 
