@@ -13,7 +13,7 @@
                         if ($child['photo'] !== NULL) {
                             echo '<img class="card-img-top" src="' . base_url() . 'assets/photo/children/' . $child['photo'] . '" alt="No Image">';
                         } else {
-                            echo '<img class="card-img-top" src="https://dummyimage.com/640x360/f0f0f0/aaa" alt="No Image">';
+                            echo '<img class="card-img-top" src="' . base_url() . 'assets/photo/placeholder.png" alt="No Image">';
                         }
                         ?>
                         <div class="card-body">
@@ -49,7 +49,7 @@
         } ?>
         <div class="col d-flex">
             <div class="card h-100 rounded-3 shadow">
-                <img class="card-img-top" src="https://dummyimage.com/640x360/f0f0f0/aaa" alt="No Image">
+                <img class="card-img-top" src="<?php echo base_url(); ?>assets/photo/placeholder.png" alt="No Image">
                 <div class="card-body  text-center">
                     <h5 class="text-capitalize">Register new child</h5>
                     <button class="btn" data-bs-toggle="modal" data-bs-target="#registerChild"><i class="fas fa-plus fa-fw fa-4x"></i></button>

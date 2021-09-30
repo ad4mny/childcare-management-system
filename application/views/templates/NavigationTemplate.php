@@ -36,7 +36,7 @@
         </div>
     </nav>
 <?php }
-if ($_SESSION['role'] == 1) { ?>
+if ($_SESSION['role'] == 2) { ?>
     <nav class="navbar navbar-light bg-white shadow sticky-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Bonda Sadiah</a>
@@ -63,7 +63,7 @@ if ($_SESSION['role'] == 1) { ?>
                             <a class="nav-link <?php if ($this->uri->segment(2) == 'payment') echo 'active border-bottom'; ?>" href="<?php echo base_url(); ?>manage/payment">Manage Payment</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link <?php if ($this->uri->segment(2) == 'profile') echo 'active border-bottom'; ?>" href="<?php echo base_url(); ?>manage/profile">Manage Teacher</a>
+                            <a class="nav-link <?php if ($this->uri->segment(2) == 'teacher') echo 'active border-bottom'; ?>" href="<?php echo base_url(); ?>manage/teacher">Manage Teacher</a>
                         </li>
                     </ul>
                     <form class="d-flex pt-5 ">

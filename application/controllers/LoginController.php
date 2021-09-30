@@ -29,7 +29,7 @@ class LoginController extends CI_Controller
 
             switch ($this->session->userdata('role')) {
                 case 2:
-                    redirect(base_url() . 'admin/dashboard');
+                    redirect(base_url() . 'manage/parent');
                     break;
                 case 1:
                     redirect(base_url() . 'teacher/dashboard');
