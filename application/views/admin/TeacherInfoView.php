@@ -1,7 +1,7 @@
 <div class="container my-5">
     <div class="row">
         <div class="col">
-            <h1 class="border-bottom pb-1">Your Profile</h1>
+            <h1 class="border-bottom pb-1">Teacher's Profile</h1>
         </div>
     </div>
     <div class="row ">
@@ -56,7 +56,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h3>Update Profile</h3>
+                <h3>Update Teacher's Profile</h3>
             </div>
             <div class="modal-body">
                 <form class="row g-2" method="post" action="<?php echo base_url(); ?>profile/update/submit" enctype="multipart/form-data">
