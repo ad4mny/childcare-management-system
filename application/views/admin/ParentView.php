@@ -10,13 +10,13 @@
                 foreach ($parents as $parent) {
                     $id = $parent['userid'];
             ?>
-                    <a href="<?php echo base_url() . 'teacher/dashboard/' . $id; ?>" class="row rounded-3 shadow-sm bg-white p-1 my-1 text-decoration-none text-reset">
+                    <a href="<?php echo base_url() . 'manage/parent/' . $id; ?>" class="row rounded-3 shadow-sm bg-white p-1 my-1 text-decoration-none text-reset">
                         <div class="col m-auto">
                             <?php
                             if ($parent['photo'] !== NULL) {
                                 echo '<img class="card-img-top" src="' . base_url() . 'assets/photo/parent/' . $parent['photo'] . '" alt="No Image">';
                             } else {
-                                echo '<img class="card-img-top" src="https://dummyimage.com/640x360/f0f0f0/aaa" alt="No Image">';
+                                echo '<img class="card-img-top" src="' . base_url() . 'assets/photo/placeholder.png" alt="No Image">';
                             }
                             ?>
                         </div>
@@ -42,7 +42,7 @@
                                 if ($child['photo'] !== NULL) {
                                     echo '<img class="card-img-top" src="' . base_url() . 'assets/photo/children/' . $child['photo'] . '" alt="No Image">';
                                 } else {
-                                    echo '<img class="card-img-top" src="https://dummyimage.com/640x360/f0f0f0/aaa" alt="No Image">';
+                                    echo '<img class="card-img-top" src="' . base_url() . 'assets/photo/placeholder.png" alt="No Image">';
                                 }
                                 ?>
                                 <div class="card-body">
@@ -67,10 +67,10 @@
                                         </p>
                                     </div>
                                     <div class="position-absolute top-0 end-0 me-2 mt-2">
-                                        <a href="<?php echo base_url() . 'teacher/dashboard/remove/' . $child['childrenid']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure want to delte this child info?');">
+                                        <a href="<?php echo base_url() . 'manage/parent/remove/' . $child['childrenid']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure want to delte this child info?');">
                                             <i class="fas fa-times fa-fw "></i>
                                         </a>
-                                        <a href="<?php echo base_url() . 'teacher/dashboard/view/' . $child['childrenid']; ?>" class="btn btn-primary btn-sm">
+                                        <a href="<?php echo base_url() . 'manage/parent/view/' . $child['childrenid']; ?>" class="btn btn-primary btn-sm">
                                             <i class="fas fa-eye fa-fw "></i>
                                         </a>
                                     </div>

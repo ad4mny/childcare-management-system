@@ -19,11 +19,17 @@ $route['announcement'] = 'AnnouncementController';
 $route['profile'] = 'ProfileController';
 $route['profile/update/submit'] = 'ProfileController/updateProfileInfo';
 
-$route['teacher/(:any)'] = 'TeacherController/index/$1';
-$route['teacher/dashboard/(:num)'] = 'TeacherController/index/dashboard/$1';
-$route['teacher/dashboard/view/(:num)'] = 'TeacherController/viewChildInfo/$1';
-$route['teacher/dashboard/remove/(:num)'] = 'TeacherController/removeChildInfo/$1';
+// Admin routes 
+$route['manage/(:any)'] = 'TeacherController/index/$1';
 
-$route['teacher/attendence/submit'] = 'TeacherController/addAttendence';
-$route['teacher/announcement/submit'] = 'TeacherController/addAnnouncement';
-$route['teacher/announcement/remove/(:num)'] = 'TeacherController/removeAnnouncement/$1';
+$route['manage/parent/(:num)'] = 'TeacherController/index/dashboard/$1';
+$route['manage/parent/view/(:num)'] = 'TeacherController/viewChildInfo/$1';
+$route['manage/parent/remove/(:num)'] = 'TeacherController/removeChildInfo/$1';
+
+$route['manage/attendence/submit'] = 'TeacherController/addAttendence';
+$route['manage/attendence/remove/(:num)'] = 'TeacherController/removeAttendence/$1';
+
+$route['manage/announcement/submit'] = 'TeacherController/addAnnouncement';
+$route['manage/announcement/remove/(:num)'] = 'TeacherController/removeAnnouncement/$1';
+
+
