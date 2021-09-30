@@ -66,7 +66,7 @@
                 <h3>Child Registration</h3>
             </div>
             <div class="modal-body">
-                <form class="row g-2" method="post" action="<?php echo base_url(); ?>dashboard/register/submit" enctype="multipart/form-data">
+                <form class="row g-2" method="post" action="<?php echo base_url(); ?>children/submit" enctype="multipart/form-data">
                     <div class="col-12 pb-2">
                         <small>Child's Full Name</small>
                         <input type="text" class="form-control" name="fullname" placeholder="Enter child's full name as in MyKad" required>
