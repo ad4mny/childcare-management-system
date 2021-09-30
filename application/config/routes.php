@@ -32,4 +32,8 @@ $route['manage/attendence/remove/(:num)'] = 'TeacherController/removeAttendence/
 $route['manage/announcement/submit'] = 'TeacherController/addAnnouncement';
 $route['manage/announcement/remove/(:num)'] = 'TeacherController/removeAnnouncement/$1';
 
+$route['manage/teacher/submit'] = 'TeacherController/addTeacher';
+$route['manage/teacher/view/(:num)'] = 'TeacherController/viewTeacherInfo/$1';
+$route['manage/teacher/remove/(:num)'] = 'TeacherController/removeTeacher/$1';
+
 

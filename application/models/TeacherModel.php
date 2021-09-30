@@ -16,8 +16,8 @@ class TeacherModel extends CI_Model
         $this->db->select('*');
         $this->db->from('childrens');
         return $this->db->get()->result_array();
-    } 
-    
+    }
+
     public function getChildByParentIDModel($parent_id)
     {
         $this->db->select('*');
@@ -31,7 +31,7 @@ class TeacherModel extends CI_Model
         $this->db->where('childrenid', $child_id);
         return $this->db->delete('childrens');
     }
- 
+
 
     public function getAttendenceListModel()
     {
@@ -53,15 +53,14 @@ class TeacherModel extends CI_Model
         );
 
         return $this->db->insert('attendences', $data);
-    }   
+    }
 
     public function removeAttendenceModel($attendence_id)
     {
         $this->db->where('attendenceid', $attendence_id);
         return $this->db->delete('attendences');
     }
-    
-    
+
     public function addAnnouncementModel($title, $description)
     {
         $data = array(
@@ -79,11 +78,51 @@ class TeacherModel extends CI_Model
         $this->db->where('announcementid', $announcement_id);
         return $this->db->delete('announcements');
     }
-    
+
     public function getPaymentListModel()
     {
         $this->db->select('*');
         $this->db->from('payments');
         return $this->db->get()->result_array();
+    }
+
+    public function getTeacherListModel()
+    {
+        $this->db->select('*');
+        $this->db->from('users');
+        $this->db->where('role', 1);
+        return $this->db->get()->result_array();
+    }
+
+    public function getTeacherInfoByIDModel($teacher_id)
+    {
+        $this->db->select('*');
+        $this->db->from('users');
+        $this->db->where('userid', $teacher_id);
+        return $this->db->get()->row_array();
+    }
+
+
+    public function addTeacherModel($fullname, $icnumber, $phone, $address, $username, $password, $photo)
+    {
+        $data = array(
+            'fullname' => $fullname,
+            'icnumber' => $icnumber,
+            'phone' => $phone,
+            'address' => $address,
+            'username' => $username,
+            'password' => $password,
+            'photo' => $photo,
+            'datetime' => date('H:i:s Y-m-d'),
+            'role' => 1
+        );
+
+        return $this->db->insert('users', $data);
+    }
+
+    public function removeTeacherModel($teacher_id)
+    {
+        $this->db->where('userid', $teacher_id);
+        return $this->db->delete('users');
     }
 }

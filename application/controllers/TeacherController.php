@@ -9,6 +9,7 @@ class TeacherController extends CI_Controller
         $this->load->model('DashboardModel');
         $this->load->model('AnnouncementModel');
         $this->load->model('ProfileModel');
+        $this->load->library('upload');
     }
 
     public function index($page = 'dashboard', $parent_id = NULL)
@@ -31,7 +32,7 @@ class TeacherController extends CI_Controller
                 $data['payments'] = $this->getPaymentList();
                 $this->load->view('admin/PaymentView.php', $data);
                 break;
-            case 'profile':
+            case 'teacher':
                 $data['teachers'] = $this->getTeacherList();
                 $this->load->view('admin/TeacherView.php', $data);
                 break;
@@ -87,6 +88,11 @@ class TeacherController extends CI_Controller
         return $this->TeacherModel->getTeacherListModel();
     }
 
+    public function getTeacherInfoByID($teacher_id)
+    {
+        return $this->TeacherModel->getTeacherInfoByIDModel($teacher_id);
+    }
+
     public function getProfileInfo()
     {
         return $this->ProfileModel->getProfileInfoModel();
@@ -110,7 +116,7 @@ class TeacherController extends CI_Controller
             $this->session->set_tempdata('error', 'Removing child info error, try again later.', 1);
         }
 
-        redirect(base_url() . 'manage/dashboard');
+        redirect(base_url() . 'manage/parent');
     }
 
     public function addAttendence()
@@ -162,5 +168,54 @@ class TeacherController extends CI_Controller
         }
 
         redirect(base_url() . 'manage/announcement');
+    }
+
+    public function addTeacher()
+    {
+        $fullname = $this->input->post('fullname');
+        $icnumber = $this->input->post('icnumber');
+        $phone = $this->input->post('phone');
+        $address = $this->input->post('address');
+        $username = $this->input->post('username');
+
+        $config['upload_path'] = './assets/photo/teacher';
+        $config['allowed_types'] = 'jpeg|jpg|png';
+        $config['max_size'] = '0';
+
+        $this->upload->initialize($config);
+
+        if (!$this->upload->do_upload('photo')) {
+            $this->session->set_tempdata('error', $this->upload->display_errors('', ''), 1);
+        } else {
+            $photo = $this->upload->data('file_name');
+            if ($this->TeacherModel->addTeacherModel($fullname, $icnumber, $phone, $address, $username, md5($username),  $photo) === true) {
+                $this->session->set_tempdata('notice', 'Account has been created successfully, please proceed login.', 1);
+            } else {
+                $this->session->set_tempdata('error', 'Registration failed, please register again.', 1);
+            }
+        }
+        
+        redirect(base_url() . 'manage/teacher');
+    }
+
+    public function removeTeacher($teacher_id)
+    {
+        if ($this->TeacherModel->removeTeacherModel($teacher_id) === true) {
+            $this->session->set_tempdata('notice', 'Selected teacher has been removed from database.', 1);
+        } else {
+            $this->session->set_tempdata('error', 'Removing teacher error, try again later.', 1);
+        }
+
+        redirect(base_url() . 'manage/teacher');
+    }
+
+    public function viewTeacherInfo($teacher_id)
+    {
+        $data['teachers'] = $this->getTeacherInfoByID($teacher_id);
+
+        $this->load->view('templates/HeaderTemplate.php');
+        $this->load->view('templates/NavigationTemplate.php');
+        $this->load->view('admin/TeacherInfoView.php', $data);
+        $this->load->view('templates/FooterTemplate.php');
     }
 }
