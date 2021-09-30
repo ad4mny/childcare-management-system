@@ -8,7 +8,7 @@
         <div class="col-4">
             <div class="bg-white shadow rounded-3 p-4">
                 <p>Add an attendence</p>
-                <form class="row g-2" method="post" action="<?php echo base_url(); ?>teacher/attendence/submit">
+                <form class="row g-2" method="post" action="<?php echo base_url(); ?>manage/attendence/submit">
                     <div class="col-12">
                         <select class="form-select" name="childid" required>
                             <option disabled selected>Choose child's name</option>

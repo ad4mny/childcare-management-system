@@ -22,7 +22,7 @@
                             <p class="card-text text-end"><small class="text-muted">Last updated <?php echo $announcement['datetime']; ?></small></p>
                         </div>
                         <div class="position-absolute top-0 end-0 me-2 mt-2">
-                            <a href="<?php echo base_url() . 'teacher/announcement/remove/' . $announcement['announcementid']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure want to delete this announcement?');">
+                            <a href="<?php echo base_url() . 'manage/announcement/remove/' . $announcement['announcementid']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure want to delete this announcement?');">
                                 <i class="fas fa-times fa-fw "></i>
                             </a>
                         </div>

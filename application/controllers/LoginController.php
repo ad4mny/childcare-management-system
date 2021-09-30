@@ -32,7 +32,7 @@ class LoginController extends CI_Controller
                     redirect(base_url() . 'manage/parent');
                     break;
                 case 1:
-                    redirect(base_url() . 'teacher/dashboard');
+                    redirect(base_url() . 'logout');
                     break;
                 default:
                     redirect(base_url() . 'children');
