@@ -12,9 +12,9 @@
                     <div class="col-12">
                         <select class="form-select" name="childid" required>
                             <option disabled selected>Choose child's name</option>
-                            <?php if (isset($childs) && $childs != false) {
-                                foreach ($childs as $child) { ?>
-                                    <option value="<?php echo $child['childrenid']; ?>"><?php echo $child['fullname']; ?></option>
+                            <?php if (isset($childrens) && $childrens != false) {
+                                foreach ($childrens as $children) { ?>
+                                    <option value="<?php echo $children['childrenid']; ?>"><?php echo $children['fullname']; ?></option>
                             <?php }
                             } ?>
                         </select>
