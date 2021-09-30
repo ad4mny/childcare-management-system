@@ -1,7 +1,7 @@
 <div class="container my-5">
     <div class="row">
         <div class="col">
-            <h1 class="border-bottom pb-1">Registered Parent & Children</h1>
+            <h1 class="border-bottom pb-1">Manage Registered Parent & Children</h1>
         </div>
     </div>
     <div class="row">
@@ -69,9 +69,6 @@
                                     <div class="position-absolute top-0 end-0 me-2 mt-2">
                                         <a href="<?php echo base_url() . 'manage/parent/remove/' . $child['childrenid']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure want to delte this child info?');">
                                             <i class="fas fa-times fa-fw "></i>
-                                        </a>
-                                        <a href="<?php echo base_url() . 'manage/parent/view/' . $child['childrenid']; ?>" class="btn btn-primary btn-sm">
-                                            <i class="fas fa-eye fa-fw "></i>
                                         </a>
                                     </div>
                                 </div>

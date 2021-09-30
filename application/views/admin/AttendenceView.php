@@ -1,7 +1,7 @@
 <div class="container my-5">
     <div class="row">
         <div class="col">
-            <h1 class="border-bottom pb-1">All Attendence List</h1>
+            <h1 class="border-bottom pb-1">Manage Attendence List</h1>
         </div>
     </div>
     <div class="row">
@@ -34,7 +34,7 @@
                 </form>
             </div>
         </div>
-        <div class="col ">
+        <div class="col overflow-auto" style="height:65vh;">
             <?php
             if (isset($attendences) && $attendences != false) {
                 foreach ($attendences as $attendence) {

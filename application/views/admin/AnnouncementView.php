@@ -1,7 +1,7 @@
 <div class="container my-5">
     <div class="row border-bottom pb-1">
         <div class="col">
-            <h1 class="">Announcements</h1>
+            <h1 class="">Manage Announcement</h1>
         </div>
         <div class="col text-end m-auto">
             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addAnnouncement">Add New</button>
