@@ -35,7 +35,8 @@
             </div>
         </div>
     </nav>
-<?php } else if ($_SESSION['role'] == 1) { ?>
+<?php }
+if ($_SESSION['role'] == 1) { ?>
     <nav class="navbar navbar-light bg-white shadow sticky-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Bonda Sadiah</a>
@@ -44,25 +45,25 @@
             </button>
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Teacher</h5>
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Administrator</h5>
                     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item">
-                            <a class="nav-link <?php if ($this->uri->segment(2) == 'dashboard') echo 'active border-bottom'; ?>" href="<?php echo base_url(); ?>teacher/dashboard">Register Children</a>
+                            <a class="nav-link <?php if ($this->uri->segment(2) == 'parent') echo 'active border-bottom'; ?>" href="<?php echo base_url(); ?>manage/parent">Manage Parent</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link <?php if ($this->uri->segment(2) == 'announcement') echo 'active border-bottom'; ?>" href="<?php echo base_url(); ?>teacher/announcement">Announcement</a>
+                            <a class="nav-link <?php if ($this->uri->segment(2) == 'announcement') echo 'active border-bottom'; ?>" href="<?php echo base_url(); ?>manage/announcement">Manage Announcement</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link <?php if ($this->uri->segment(2) == 'attendence') echo 'active border-bottom'; ?>" href="<?php echo base_url(); ?>teacher/attendence">Attendence</a>
+                            <a class="nav-link <?php if ($this->uri->segment(2) == 'attendence') echo 'active border-bottom'; ?>" href="<?php echo base_url(); ?>manage/attendence">Manage Attendence</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link <?php if ($this->uri->segment(2) == 'payment') echo 'active border-bottom'; ?>" href="<?php echo base_url(); ?>teacher/payment">Payment</a>
+                            <a class="nav-link <?php if ($this->uri->segment(2) == 'payment') echo 'active border-bottom'; ?>" href="<?php echo base_url(); ?>manage/payment">Manage Payment</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link <?php if ($this->uri->segment(2) == 'profile') echo 'active border-bottom'; ?>" href="<?php echo base_url(); ?>teacher/profile">Profile</a>
+                            <a class="nav-link <?php if ($this->uri->segment(2) == 'profile') echo 'active border-bottom'; ?>" href="<?php echo base_url(); ?>manage/profile">Manage Teacher</a>
                         </li>
                     </ul>
                     <form class="d-flex pt-5 ">
@@ -72,8 +73,7 @@
             </div>
         </div>
     </nav>
-<?php } else { ?>
-<?php } ?>
+<?php }  ?>
 
 <div id="alert" class="w-75 position-absolute start-50 translate-middle mt-5" style="z-index: 1; top: 10%;">
     <?php
