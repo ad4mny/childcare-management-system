@@ -38,9 +38,9 @@
                                 </p>
                             </div>
                             <div class="position-absolute bottom-0 end-0 me-2 mb-2">
-                                <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#updateChild">
-                                    <i class="fas fa-edit fa-fw "></i>
-                                </button>
+                                <a href="<?php echo base_url() . 'children/view/' . $child['childrenid']; ?>" class="btn btn-primary btn-sm">
+                                    <i class="fas fa-eye fa-fw "></i>
+                                </a>
                             </div>
                         </div>
                     </div>

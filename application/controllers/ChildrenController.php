@@ -1,11 +1,11 @@
 <?php
 
-class DashboardController extends CI_Controller
+class ChildrenController extends CI_Controller
 {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('DashboardModel');
+        $this->load->model('ChildrenModel');
         $this->load->library('upload');
     }
 
@@ -15,13 +15,28 @@ class DashboardController extends CI_Controller
         $data['childrens'] = $this->getChildrenList();
         $this->load->view('templates/HeaderTemplate.php');
         $this->load->view('templates/NavigationTemplate.php');
-        $this->load->view('DashboardView.php', $data);
+        $this->load->view('ChildrenView.php', $data);
         $this->load->view('templates/FooterTemplate.php');
     }
 
     public function getChildrenList()
     {
-        return $this->DashboardModel->getChildrenListModel();
+        return $this->ChildrenModel->getChildrenListModel();
+    }  
+    
+    public function getChildInfoByID($child_id)
+    {
+        return $this->ChildrenModel->getChildInfoByIDModel($child_id);
+    }
+
+    public function viewChildInfo($child_id)
+    {
+        $data['childs'] = $this->getChildInfoByID($child_id);
+
+        $this->load->view('templates/HeaderTemplate.php');
+        $this->load->view('templates/NavigationTemplate.php');
+        $this->load->view('ChildInfoView.php', $data);
+        $this->load->view('templates/FooterTemplate.php');
     }
 
     public function registerChild()
@@ -42,13 +57,13 @@ class DashboardController extends CI_Controller
         } else {
             $photo = $this->upload->data('file_name');
 
-            if ($this->DashboardModel->registerChildModel($fullname, $icnumber, $age, $allergic, $photo) === true) {
+            if ($this->ChildrenModel->registerChildModel($fullname, $icnumber, $age, $allergic, $photo) === true) {
                 $this->session->set_tempdata('notice', 'Your child has been added to database.', 1);
             } else {
                 $this->session->set_tempdata('error', 'Registration failed, please register your child again.', 1);
             }
         }
         
-        redirect(base_url() . 'dashboard');
+        redirect(base_url() . 'children');
     }
 }

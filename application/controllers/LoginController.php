@@ -35,7 +35,7 @@ class LoginController extends CI_Controller
                     redirect(base_url() . 'teacher/dashboard');
                     break;
                 default:
-                    redirect(base_url() . 'dashboard');
+                    redirect(base_url() . 'children');
                     break;
             }
         } else {
