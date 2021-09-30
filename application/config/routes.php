@@ -21,6 +21,8 @@ $route['announcement'] = 'AnnouncementController';
 
 $route['attendence'] = 'AttendenceController';
 
+$route['payment'] = 'PaymentController';
+
 $route['profile'] = 'ProfileController';
 $route['profile/update/submit'] = 'ProfileController/updateProfileInfo';
 
