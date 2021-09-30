@@ -14,10 +14,13 @@ $route['register/submit'] = 'RegisterController/registerUser';
 
 $route['children'] = 'ChildrenController';
 $route['children/view/(:num)'] = 'ChildrenController/viewChildInfo/$1';
-$route['children/register/submit'] = 'ChildrenController/registerChild';
+$route['children/submit'] = 'ChildrenController/registerChild';
 $route['children/update/submit'] = 'ChildrenController/updateChild';
 
 $route['announcement'] = 'AnnouncementController';
+
+$route['attendence'] = 'AttendenceController';
+
 $route['profile'] = 'ProfileController';
 $route['profile/update/submit'] = 'ProfileController/updateProfileInfo';
 
