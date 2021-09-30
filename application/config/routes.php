@@ -12,8 +12,10 @@ $route['logout'] = 'LoginController/logoutUser';
 $route['register'] = 'RegisterController';
 $route['register/submit'] = 'RegisterController/registerUser';
 
-$route['dashboard'] = 'DashboardController';
-$route['dashboard/register/submit'] = 'DashboardController/registerChild';
+$route['children'] = 'ChildrenController';
+$route['children/view/(:num)'] = 'ChildrenController/viewChildInfo/$1';
+$route['children/register/submit'] = 'ChildrenController/registerChild';
+$route['children/update/submit'] = 'ChildrenController/updateChild';
 
 $route['announcement'] = 'AnnouncementController';
 $route['profile'] = 'ProfileController';
