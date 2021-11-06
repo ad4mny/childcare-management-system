@@ -52,7 +52,7 @@
                 <h3>New Announcement</h3>
             </div>
             <div class="modal-body">
-                <form class="row g-2" method="post" action="<?php echo base_url(); ?>teacher/announcement/submit">
+                <form class="row g-2" method="post" action="<?php echo base_url(); ?>manage/announcement/submit">
                     <div class="col-12 pb-2">
                         <small>Announcement's Title</small>
                         <input type="text" class="form-control" name="title" placeholder="Enter announcement title" required>
