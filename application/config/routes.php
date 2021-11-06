@@ -32,6 +32,7 @@ $route['manage/(:any)'] = 'TeacherController/index/$1';
 $route['manage/parent/(:num)'] = 'TeacherController/index/dashboard/$1';
 $route['manage/parent/view/(:num)'] = 'TeacherController/viewChildInfo/$1';
 $route['manage/parent/remove/(:num)'] = 'TeacherController/removeChildInfo/$1';
+$route['manage/parent/delete/(:num)'] = 'TeacherController/deleteParentInfo/$1';
 
 $route['manage/attendence/submit'] = 'TeacherController/addAttendence';
 $route['manage/attendence/remove/(:num)'] = 'TeacherController/removeAttendence/$1';

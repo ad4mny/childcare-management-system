@@ -87,6 +87,17 @@ class TeacherController extends CI_Controller
         return $this->TeacherModel->getTeacherInfoByIDModel($teacher_id);
     }
 
+    public function deleteParentInfo($parent_id)
+    {
+        if ($this->TeacherModel->deleteParentInfoModel($parent_id) === true) {
+            $this->session->set_tempdata('notice', 'Selected parent info has been removed from database.', 1);
+        } else {
+            $this->session->set_tempdata('error', 'Removing parent info error, try again later.', 1);
+        }
+
+        redirect(base_url() . 'manage/parent');
+    }
+    
     public function removeChildInfo($child_id)
     {
         if ($this->TeacherModel->removeChildInfoModel($child_id) === true) {

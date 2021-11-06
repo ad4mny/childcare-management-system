@@ -10,7 +10,7 @@
                 foreach ($parents as $parent) {
                     $id = $parent['userid'];
             ?>
-                    <a href="<?php echo base_url() . 'manage/parent/' . $id; ?>" class="row rounded-3 shadow-sm bg-white p-1 my-1 text-decoration-none text-reset">
+                    <div class="row rounded-3 shadow-sm bg-white p-1 my-1">
                         <div class="col m-auto">
                             <?php
                             if ($parent['photo'] !== NULL) {
@@ -25,10 +25,15 @@
                             <small class="text-capitalize mb-0"><?php echo $parent['icnumber']; ?></small><br>
                             <small class="text-capitalize mb-0"><?php echo $parent['phone']; ?></small>
                         </div>
-                        <div class="col text-end m-auto">
-                            <i class="fas fa-chevron-right <?php if ($this->uri->segment(3) == $id) echo 'text-primary'; ?>"></i>
+                        <div class="col-2 m-auto">
+                            <a href="<?php echo base_url() . 'manage/parent/' . $id; ?>" class="btn btn-outline-primary btn-sm mb-1 <?php if ($this->uri->segment(3) == $id) echo 'active'; ?>">
+                                <i class="fas fa-eye fa-fw"></i>
+                            </a>
+                            <a href="<?php echo base_url() . 'manage/parent/delete/' . $id; ?>" class="btn btn-outline-danger btn-sm">
+                                <i class="fas fa-times fa-fw"></i>
+                            </a>
                         </div>
-                    </a>
+                    </div>
             <?php }
             } ?>
         </div>
@@ -67,7 +72,7 @@
                                         </p>
                                     </div>
                                     <div class="position-absolute top-0 end-0 me-2 mt-2">
-                                        <a href="<?php echo base_url() . 'manage/parent/remove/' . $child['childrenid']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure want to delte this child info?');">
+                                        <a href="<?php echo base_url() . 'manage/parent/remove/' . $child['childrenid']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure want to delete this child info?');">
                                             <i class="fas fa-times fa-fw "></i>
                                         </a>
                                     </div>

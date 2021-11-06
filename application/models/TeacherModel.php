@@ -26,12 +26,17 @@ class TeacherModel extends CI_Model
         return $this->db->get()->result_array();
     }
 
+    public function deleteParentInfoModel($parent_id)
+    {
+        $this->db->where('userid', $parent_id);
+        return $this->db->delete('users');
+    } 
+    
     public function removeChildInfoModel($child_id)
     {
         $this->db->where('childrenid', $child_id);
         return $this->db->delete('childrens');
     }
-
 
     public function getAttendenceListModel()
     {
