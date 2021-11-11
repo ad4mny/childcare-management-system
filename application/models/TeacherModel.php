@@ -2,6 +2,28 @@
 
 class TeacherModel extends CI_Model
 {
+    public function getAnalyticReportModel()
+    {
+        $reports = [];
+        $this->db->select('COUNT(*) as count');
+        $this->db->from('users');
+        $this->db->where('role', 0);
+        $reports['total_parent'] = $this->db->get()->row_array();
+
+        $this->db->select('COUNT(*) as count');
+        $this->db->from('childrens');
+        $reports['total_children'] = $this->db->get()->row_array();
+
+        $this->db->select('SUM(fee) as total, COUNT(*) as count');
+        $this->db->from('payments');
+        $reports['total_invoice'] = $this->db->get()->row_array();
+
+        $this->db->select('COUNT(*) as count');
+        $this->db->from('announcements');
+        $reports['total_announcement'] = $this->db->get()->row_array();
+
+        return $reports;
+    }
 
     public function getParentListModel()
     {

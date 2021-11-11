@@ -35,6 +35,10 @@ class TeacherController extends CI_Controller
                 $data['teachers'] = $this->getTeacherList();
                 $this->load->view('admin/TeacherView.php', $data);
                 break;
+            case 'report':
+                $data['reports'] = $this->getAnalyticReport();
+                $this->load->view('admin/ReportView.php', $data);
+                break;
             default:
                 if ($parent_id !== NULL) {
                     $data['childrens'] = $this->getChildByParentID($parent_id);
@@ -87,6 +91,11 @@ class TeacherController extends CI_Controller
         return $this->TeacherModel->getTeacherInfoByIDModel($teacher_id);
     }
 
+    public function getAnalyticReport()
+    {
+        return $this->TeacherModel->getAnalyticReportModel();
+    }
+
     public function deleteParentInfo($parent_id)
     {
         if ($this->TeacherModel->deleteParentInfoModel($parent_id) === true) {
@@ -97,7 +106,7 @@ class TeacherController extends CI_Controller
 
         redirect(base_url() . 'manage/parent');
     }
-    
+
     public function removeChildInfo($child_id)
     {
         if ($this->TeacherModel->removeChildInfoModel($child_id) === true) {

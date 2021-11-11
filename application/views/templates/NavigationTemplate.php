@@ -65,6 +65,9 @@ if ($_SESSION['role'] == 2) { ?>
                         <li class="nav-item">
                             <a class="nav-link <?php if ($this->uri->segment(2) == 'teacher') echo 'active border-bottom'; ?>" href="<?php echo base_url(); ?>manage/teacher">Manage Teacher</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link <?php if ($this->uri->segment(2) == 'report') echo 'active border-bottom'; ?>" href="<?php echo base_url(); ?>manage/report">Manage Report</a>
+                        </li>
                     </ul>
                     <form class="d-flex pt-5 ">
                         <a class="btn btn-danger" href="<?php echo base_url(); ?>logout">Logout</a>
