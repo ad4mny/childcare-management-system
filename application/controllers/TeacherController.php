@@ -1,4 +1,6 @@
 <?php
+header("Access-Control-Allow-Origin: *");
+defined('BASEPATH') or exit('No direct script access allowed');
 
 class TeacherController extends CI_Controller
 {
@@ -246,5 +248,28 @@ class TeacherController extends CI_Controller
         $this->load->view('templates/NavigationTemplate.php');
         $this->load->view('admin/TeacherInfoView.php', $data);
         $this->load->view('templates/FooterTemplate.php');
+    }
+
+    // API
+    public function addAttendenceAPI()
+    {
+        $child_id = $this->input->post('id');
+        $status = 'Present';
+        $date = date('d/m/Y');
+
+        echo json_encode($this->TeacherModel->addAttendenceModel($child_id, $status, $date));
+        exit;
+    }
+
+    public function getAttendenceListAPI()
+    {
+        echo json_encode($this->TeacherModel->getAttendenceListModel());
+        exit;
+    }
+
+    public function getAnnouncementListAPI()
+    {
+        echo json_encode($this->AnnouncementModel->getAnnouncementListModel());
+        exit;
     }
 }

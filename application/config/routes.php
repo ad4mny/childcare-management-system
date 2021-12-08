@@ -48,3 +48,10 @@ $route['manage/teacher/view/(:num)'] = 'TeacherController/viewTeacherInfo/$1';
 $route['manage/teacher/remove/(:num)'] = 'TeacherController/removeTeacher/$1';
 
 
+// API
+$route['api/login'] = 'LoginController/loginUserAPI';
+$route['api/add_attendance'] = 'TeacherController/addAttendenceAPI';
+$route['api/get_attendance'] = 'TeacherController/getAttendenceListAPI';
+$route['api/get_announcement'] = 'TeacherController/getAnnouncementListAPI';
+
+
