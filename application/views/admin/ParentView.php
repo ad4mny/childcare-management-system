@@ -34,12 +34,20 @@
                             </a>
                         </div>
                     </div>
-            <?php }
+                <?php }
+            } else {
+                ?>
+                <div class="row rounded-3 shadow-sm bg-white p-1 my-1">
+                    <div class="col m-auto">
+                        <p>No available parent to display.</p>
+                    </div>
+                </div>
+            <?php
             } ?>
         </div>
         <div class="col overflow-auto" style="height:65vh;">
             <?php if (isset($childrens) && $childrens != false) { ?>
-                <div class="row row-cols-3 g-2 p-1">
+                <div class="row row-cols-2 g-2 p-1">
                     <?php foreach ($childrens as $child) { ?>
                         <div class="col d-flex">
                             <div class="card h-100 rounded-3 border-0 shadow position-relative">
@@ -52,6 +60,10 @@
                                 ?>
                                 <div class="card-body">
                                     <h5 class="text-capitalize"><?php echo $child['fullname']; ?></h5>
+                                    <div class="card-text">
+                                        <small>Child ID</small>
+                                        <p class="mb-0 fw-bold"><?php echo $child['childrenid']; ?></p>
+                                    </div>
                                     <div class="card-text">
                                         <small>MyKad</small>
                                         <p class="mb-0 fw-bold"><?php echo $child['icnumber']; ?></p>
