@@ -253,9 +253,9 @@ class TeacherController extends CI_Controller
     // API
     public function addAttendenceAPI()
     {
-        $child_id = $this->input->post('id');
+        $child_id = $this->input->post('child_id');
         $status = 'Present';
-        $date = date('d/m/Y');
+        $date = date('Y/m/d');
 
         echo json_encode($this->TeacherModel->addAttendenceModel($child_id, $status, $date));
         exit;

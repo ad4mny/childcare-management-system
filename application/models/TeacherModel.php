@@ -75,8 +75,8 @@ class TeacherModel extends CI_Model
         $data = array(
             'childrenid' => $child_id,
             'status' => $status,
-            'date' => date("d/m/Y", strtotime($date)),
-            'time' => date('h:i:s A')
+            'date' => date("Y/m/d", strtotime($date)),
+            'time' => date('h:iA')
         );
 
         return $this->db->insert('attendences', $data);
@@ -175,4 +175,5 @@ class TeacherModel extends CI_Model
         $this->db->where('userid', $teacher_id);
         return $this->db->delete('users');
     }
+
 }
