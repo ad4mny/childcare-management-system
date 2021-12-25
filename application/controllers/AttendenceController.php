@@ -1,4 +1,5 @@
 <?php
+header("Access-Control-Allow-Origin: *");
 defined('BASEPATH') or exit('No direct script access allowed');
 
 class AttendenceController extends CI_Controller
@@ -24,5 +25,11 @@ class AttendenceController extends CI_Controller
         return $this->AttendenceModel->getAttendenceListModel();
     }
 
-    
+    //API
+    public function getAttendenceListAPI()
+    {
+        $_SESSION['userid'] = $this->input->post('uid');
+        echo json_encode($this->AttendenceModel->getAttendenceListModel());
+        exit;
+    }
 }

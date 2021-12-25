@@ -53,5 +53,6 @@ $route['api/login'] = 'LoginController/loginUserAPI';
 $route['api/add_attendance'] = 'TeacherController/addAttendenceAPI';
 $route['api/get_attendance'] = 'TeacherController/getAttendenceListAPI';
 $route['api/get_announcement'] = 'TeacherController/getAnnouncementListAPI';
+$route['api/get_parent_attendance'] = 'AttendenceController/getAttendenceListAPI';
 
 
