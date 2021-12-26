@@ -52,7 +52,7 @@
         <div class="col">
             <h2> About </h2>
             <p style="text-align: justify;">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu eros maximus, condimentum tortor eget, dapibus orci. In laoreet semper arcu eu maximus. Nulla tincidunt luctus porttitor. Maecenas lobortis arcu id magna malesuada, at dapibus magna facilisis. Phasellus mollis id nisi sed tempus. Ut malesuada pellentesque mi pretium egestas. Sed elit sapien, vehicula in tempus eget, fermentum eu mauris. Sed eget odio nec sapien pretium lacinia.
+                Taska Bonda Sediah is a children's childcare that has been established since 2010 by its owner, Puan Saleha Binti Haji Ahmad. This childcare is located at No. 21 Jalan Tm 7/2 Taman Temerloh Makmur, Temerloh Pahang. This childcare has an average of about 25-30 children enrolling a year.
             </p>
         </div>
     </div>
@@ -60,7 +60,7 @@
         <div class="col">
             <h2> Contact Us </h2>
             <p style="text-align: justify;">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu eros maximus, condimentum tortor eget, dapibus orci. In laoreet semper arcu eu maximus. Nulla tincidunt luctus porttitor. Maecenas lobortis arcu id magna malesuada, at dapibus magna facilisis. Phasellus mollis id nisi sed tempus. Ut malesuada pellentesque mi pretium egestas. Sed elit sapien, vehicula in tempus eget, fermentum eu mauris. Sed eget odio nec sapien pretium lacinia.
+                The childcare can be contacted via telephone number +60 19-961 1072 or via email taskabondasediah@gmail.com . Parents who want to register can also directly visit the nursery for any information.
             </p>
         </div>
     </div>
